@@ -6,14 +6,15 @@
 // https://www.geeksforgeeks.org/php-match-expression/
 // https://www.geeksforgeeks.org/php-match-expression/
 //https://www.youtube.com/watch?v=RPUoaHERTRQ
-  $sub = 'PHP'; 
+  $sub = 'Other1'; 
   
   $val = match ($sub) { 
       'HTML' => 'HTML Course', 
       'CSS' => 'CSS Course', 
       'PHP' => 'PHP Course', 
       'JavaScript' => 'JS Course', 
-      'WebDev' => 'Complete Web Development'
+      'WebDev' => 'Complete Web Development',
+	  'Other' , 'Other1' => 'Other things'
   }; 
   
   var_dump($val); 
