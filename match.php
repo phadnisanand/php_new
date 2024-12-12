@@ -14,7 +14,7 @@
       'PHP' => 'PHP Course', 
       'JavaScript' => 'JS Course', 
       'WebDev' => 'Complete Web Development',
-	  'Other' , 'Other1' => 'Other things'
+      'Other' , 'Other1' => 'Other things'
   }; 
   
   var_dump($val); 
