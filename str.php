@@ -8,14 +8,14 @@
 	$result = str_ends_with($string, $endsWith) ? 'is' : 'is not';
 
 	echo "The string \"$string\" $result ending with $endsWith";
-	
+
 	echo '<br />';
 	$name = 'Saurabh Singh'; 
-    $beginsWith = 'Saurabh'; 
-  
-    $result = str_starts_with($name, $beginsWith) ? 'is' : 'is not'; 
-  
-    echo "The string \"$name\" $result starting with $beginsWith"; 
+	$beginsWith = 'Saurabh'; 
+
+	$result = str_starts_with($name, $beginsWith) ? 'is' : 'is not'; 
+
+	echo "The string \"$name\" $result starting with $beginsWith"; 
   
 
 ?>
