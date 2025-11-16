@@ -1,11 +1,15 @@
 <?php
-// https://php.watch/versions/8.0/union-types
-class Example {
-    private int|float $foo;
-    public function squareAndAdd(float|int $bar, $foo): int|float {
-        return $bar ** 2 + $foo;
-    }
+declare(strict_types= 1);
+
+class User {
+
+	public function __construct(protected int|string $salary) {
+	
+	}
+	
+	public function display() {
+			return $this->salary;
+	}
 }
-$obj = new Example();
-echo $obj->squareAndAdd(10.3, foo:20);  echo '<br />';
-echo $obj->squareAndAdd(10,foo:20);
+$user = new User("100 rupee");
+echo $user->display();
