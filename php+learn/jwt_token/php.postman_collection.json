@@ -1,0 +1,86 @@
+{
+	"info": {
+		"_postman_id": "f61d120c-6fcc-40ad-9641-2784cf43f485",
+		"name": "php",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "2861613"
+	},
+	"item": [
+		{
+			"name": "get resoruce",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjcsIm5hbWUiOiJhbmFuZCIsImV4cCI6MTc2NDc0NDM0Mn0.1HYpx540Js5fwTz89L6_5yMWyqf_LAl4HN5L3XK0a9s",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": "http://localhost/jwt_token/api/getAllStudents"
+			},
+			"response": []
+		},
+		{
+			"name": "create token",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"username\": \"anand\",\r\n        \"password\": \"anand123\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost/jwt_token/api/login.php"
+			},
+			"response": []
+		},
+		{
+			"name": "refresh",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImV4cCI6MTc2MTcxNDcyOX0.4WNCli5UZ8mwznoPN6gh6SEj_p2bifyKj9ZMvKGa2Ho",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOjEsImV4cCI6MTc2MTcxNDgyNn0.kpOX_6QjTU2XuFUVtgTUEboeSB6Pl29AgehcP-h_7kw\"\r\n    }"
+				},
+				"url": "http://localhost/php_auth_jwt_tut/api/refresh.php"
+			},
+			"response": []
+		}
+	]
+}
