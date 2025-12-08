@@ -1,0 +1,12 @@
+{"message":"An error occurred.","context":{},"level":400,"level_name":"ERROR","channel":"my_logger","datetime":"2025-12-08T02:47:11.655854+00:00","extra":{}}
+{"message":"This application is in critical condition!!","context":{},"level":500,"level_name":"CRITICAL","channel":"my_logger","datetime":"2025-12-08T02:47:11.657108+00:00","extra":{}}
+{"message":"This is an EMERGENCY!!!","context":{},"level":600,"level_name":"EMERGENCY","channel":"my_logger","datetime":"2025-12-08T02:47:11.657222+00:00","extra":{}}
+{"message":"An error occurred.","context":{},"level":400,"level_name":"ERROR","channel":"my_logger","datetime":"2025-12-08T02:47:58.298511+00:00","extra":{}}
+{"message":"This application is in critical condition!!","context":{},"level":500,"level_name":"CRITICAL","channel":"my_logger","datetime":"2025-12-08T02:47:58.298802+00:00","extra":{}}
+{"message":"This is an EMERGENCY!!!","context":{},"level":600,"level_name":"EMERGENCY","channel":"my_logger","datetime":"2025-12-08T02:47:58.300520+00:00","extra":{}}
+{"message":"This is a notice level message.","context":{},"level":250,"level_name":"NOTICE","channel":"my_logger","datetime":"2025-12-08T02:49:19.197198+00:00","extra":{}}
+{"message":"This is a warning level message.","context":{},"level":300,"level_name":"WARNING","channel":"my_logger","datetime":"2025-12-08T02:49:19.197694+00:00","extra":{}}
+{"message":"This is an error level message.","context":{},"level":400,"level_name":"ERROR","channel":"my_logger","datetime":"2025-12-08T02:49:19.197808+00:00","extra":{}}
+{"message":"This is a critical level message.","context":{},"level":500,"level_name":"CRITICAL","channel":"my_logger","datetime":"2025-12-08T02:49:19.197848+00:00","extra":{}}
+{"message":"This is an alert level message.","context":{},"level":550,"level_name":"ALERT","channel":"my_logger","datetime":"2025-12-08T02:49:19.197883+00:00","extra":{}}
+{"message":"This is an emergency level message.","context":{},"level":600,"level_name":"EMERGENCY","channel":"my_logger","datetime":"2025-12-08T02:49:19.197919+00:00","extra":{}}
