@@ -1,0 +1,23 @@
+diff --git a/src/Plugin/LayoutMigration.php b/src/Plugin/LayoutMigration.php
+index 7b4abc2..2efc9dd 100644
+--- a/src/Plugin/LayoutMigration.php
++++ b/src/Plugin/LayoutMigration.php
+@@ -82,7 +82,25 @@ class LayoutMigration extends PluginBase {
+
+     // OLD BROKEN CODE:
+-    $node = $this->entityTypeManager->getStorage('node')->load($nid);
+
++    // NEW FIX: Ensure correct translation is loaded.
++    $node = $this->entityTypeManager->getStorage('node')->load($nid);
++    if ($node instanceof \Drupal\node\Entity\Node && $node->hasTranslation($langcode)) {
++      $node = $node->getTranslation($langcode);
++    }
++
++    // NEW FIX: Ensure layout is per-language instead of shared.
++    if ($node->hasField('layout_builder__layout')) {
++      // Wipe existing layout in translation (Panelizer copies EN layout).
++      $node->set('layout_builder__layout', []);
++    }
+
+     // Continue converting Panelizer data → Layout Builder sections
+     $panelizer_data = $this->loadPanelizerData($nid, $langcode);

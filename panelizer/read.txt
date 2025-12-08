@@ -1,0 +1,14 @@
+"extra": {
+  "patches": {
+    "drupal/panelizer": {
+      "Fix multilingual migration to Layout Builder": "patches/panelizer-lbm-multilingual-fix.patch"
+    }
+  }
+}
+
+drush migrate:rollback panelizer_to_layout_builder
+drush migrate:import panelizer_to_layout_builder
+
+/admin/config/content/panelizer-migration
+
+drush scr fix-multilingual-layouts.php
