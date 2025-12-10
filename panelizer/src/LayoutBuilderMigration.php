@@ -180,6 +180,14 @@ final class LayoutBuilderMigration implements ContainerInjectionInterface {
       }
     }
 
+    // If this entity/translation already has a Layout Builder layout saved
+    // (for example, Panelizer copied the default language layout into the
+    // translation), clear it now so the migration writes the correct,
+    // language-specific sections instead of preserving the wrong layout.
+    if ($entity->hasField('layout_builder__layout')) {
+      $entity->set('layout_builder__layout', []);
+    }
+
     foreach ($entity->panelizer as $panelizer_item) {
       if ($panelizer_item->view_mode === 'full') {
         if ($panelizer_item->panels_display) {
@@ -443,7 +451,24 @@ final class LayoutBuilderMigration implements ContainerInjectionInterface {
 
     assert($entity instanceof FieldableEntityInterface);
 
-    \Drupal::classResolver(static::class)->doProcessEntity($entity);
+    // If the entity is translatable, process each translation separately.
+    // This ensures that language-specific layout sections and block
+    // references are migrated per-language and saved on the correct
+    // translation, avoiding overwrites and loss of language-specific
+    // data such as path aliases.
+    $class_resolver = \Drupal::classResolver(static::class);
+    if ($entity->isTranslatable()) {
+      foreach ($entity->getTranslationLanguages() as $langcode => $language) {
+        // Load the translation and process it. doProcessEntity expects a
+        // FieldableEntityInterface instance and will save the entity
+        // (translation) itself.
+        $translated = $entity->getTranslation($langcode);
+        $class_resolver->doProcessEntity($translated);
+      }
+    }
+    else {
+      $class_resolver->doProcessEntity($entity);
+    }
   }
 
 }
